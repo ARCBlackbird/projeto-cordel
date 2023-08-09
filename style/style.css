@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+* { /* Resetando as configurações para todos os itens, no qual iremos personalizar em seguida
+    */
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --fontStock: Verdana, Geneva, Tahoma, sans-serif;
+    --fontHeader: 'Passion One', cursive;
+    --fontText: 'Sriracha', cursive;
+}
+
+html, body { /* 100% da viewport (a janela do usuário)*/
+    min-height: 100vh;
+    background-color: aliceblue;
+    font-family: var(--fontStock); /* A proposta pode até parecer inútil ou perca de tempo, mas é importante declarar uma fonte padrão para o body caso o repositório das fontes principais caiam, assim não afeta a experiência do site */
+}
+
+header { /*Adicionamos essa tag para sentido semântico, assim como pra facilitar na personalização de todos os itens do cabeçalho*/
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+header > h1 {
+    padding-top: 50px;
+    /* text-transform: uppercase;
+        Esse item irá passar todo o texto para uppercase
+    */
+    font-variant: small-caps;
+    /* Irá capitalizar a primeira letra das palavras e diminuir ligeiramente o tamanho da fonte, o efeito fica bem legal */
+    font-family: var(--fontHeader);
+    /* font-size: 24px;
+        Essa opção de definir o tamanho da fonte é válido, porém, ao ficar em telas menores ou maiores, o tamanho da fonte não se ajustará, ou seja, pode ficar grande demais, ou pequeno demais
+
+        Para resolver esse problema, podemos estimar o tamanho da fonte com base na width da tela, ou seja, usaremos o viewport width para mapear um tamanho responsivo em todas as telas
+    */
+    font-size: 10vw;
+    /*
+        Está ocupando 10% do tamanho do viewport, e se ajustará conforme extensão da tela
+    */
+}
+
+header > p {
+    padding-bottom: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    transition-duration: .5s;
+}
+
+a:hover {
+    background-color: rgb(65, 65, 65);
+    border-radius: 10px;
+    text-decoration: underline;
+    padding: 0px 6px;
+    transition-duration: .5s;
+}
+
+section { /* É importante declarar desse jeito dinâmico de viewwidth e viewheight, pois o padding irá se ajustar conforme a tela do usuário, assim aprimorando a responsividade*/
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    padding-left: 30px;
+    line-height: 2em; /* Espaço entre as linhas*/
+    font-family: var(--fontText);
+    font-size: 4vw;
+}
+section > p {
+    padding-bottom: 2em; /* Para resolver um problema de espaçamento das septilhas finais */
+}
+section.imagee > p {
+    background-color: rgba(8, 8, 8, 0.356);
+    /* width: 300px; 
+        Ao ajustarmos o tamanho padrão, irá lidar com um pequeno problema na responsividade dita acima das letras: irá ficar bem colado
+
+        Para isso, declaramos que o parágrafo é um bloco inline, ou seja, o fundo deve ser aplicado somente a ele
+    */
+    display: inline-block;
+    padding: 7px; /* E agora só declaramos um padding para afastar as bordas */
+    text-shadow: 1px 1px 0px black; /* Um sombreado no texto com deslocamento vertical/horizontal/espalhamento */
+}
+
+section#img1 {
+    background-image: url("../imagens/background001.jpg");
+    background-position: right center;
+}
+section#img2 {
+    background-image: url("../imagens/background002.jpg");
+    background-position: right center;
+
+}
+.common {
+    background-color: white;
+    color: black;
+}
+
+.imagee {
+    background-color: black;
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.473);
+    /* A ideia disso é que aplique um sombreado por dentro da caixa, na qual dará a impressão de que a imagem está afundada */
+    background-size: cover;
+    background-attachment: fixed;
+    /* Quando fixamos o fundo, ele estará ocupando 100% da viewport, sendo assim, ele será exibido assim que a view for passada por cima dele.
+
+    Como ele está fixado e ocupando 100% da viewport, a tag inicial onde foi declarada fica como 'transparente', sendo assim, será visto partes dele conforme a rolagem, dando o efeito Parallax.
+    */
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
